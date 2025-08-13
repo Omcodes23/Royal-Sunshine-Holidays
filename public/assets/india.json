@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME_0": "India",
+        "NAME_1": "Himachal Pradesh"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.0, 30.9], [78.6, 30.9], [78.6, 32.5], [77.0, 32.5], [77.0, 30.9]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME_0": "India",
+        "NAME_1": "Rest of India"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[68.0, 8.0], [97.0, 8.0], [97.0, 37.0], [68.0, 37.0], [68.0, 8.0]],
+                        [[77.0, 30.9], [78.6, 30.9], [78.6, 32.5], [77.0, 32.5], [77.0, 30.9]]]
+      }
+    }
+  ]
+}

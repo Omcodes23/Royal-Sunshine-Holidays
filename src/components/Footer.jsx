@@ -39,8 +39,8 @@ const Footer = () => {
       
       <div className="container-custom relative z-10">
                           {/* Main Footer Content */}
-         <div className="py-16">
-                                               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+         <div className="py-12 lg:py-16">
+                                               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                                                             {/* Column 1 - Location with 3D Animated Pin */}
                  <div className="text-left">
                    <div className="flex justify-center">
@@ -48,7 +48,7 @@ const Footer = () => {
                         title="View on Maps"
                         href="https://maps.google.com/?q=FF-110,+Yash+Complex,+Gotri,+Vadodara,+Gujarat,+India"
                       >
-                                                                                                                                                                                                                                                                                                                                                                                    <div className="flex basis-full flex-col p-4 tracking-tight text-gray-700 sm:basis-1/2 w-[16rem] h-[20rem]">
+                                                                                                                                                                                                                                                                                                                                                                                    <div className="flex basis-full flex-col p-3 lg:p-4 tracking-tight text-gray-700 sm:basis-1/2 w-[14rem] h-[18rem] lg:w-[16rem] lg:h-[20rem]">
                             <h3 className="max-w-xs !pb-2 !m-0 font-bold text-lg text-gray-900">
                               Royal Sunshine
                             </h3>
@@ -74,17 +74,17 @@ const Footer = () => {
 
                {/* Column 2 - Contact Information */}
                <div className="text-left">
-                <h4 className="text-lg font-semibold mb-6 text-gray-900">
+                <h4 className="text-base lg:text-lg font-semibold mb-4 lg:mb-6 text-gray-900">
                   Contact Information
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-2 lg:space-y-3">
                   <div className="text-gray-600 text-sm">
                     +91 63544 86936
                   </div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="text-gray-600 text-sm break-all">
                     b2b@royalsunshines.com
                   </div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="text-gray-600 text-sm break-all">
                     jay@royalsunshines.com
                   </div>
                 </div>
@@ -92,10 +92,10 @@ const Footer = () => {
 
               {/* Column 3 - Useful Links */}
               <div className="text-left">
-                <h4 className="text-lg font-semibold mb-6 text-gray-900">
+                <h4 className="text-base lg:text-lg font-semibold mb-4 lg:mb-6 text-gray-900">
                   Useful Links
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 lg:space-y-3">
                   {footerLinks.usefulLinks.map((link) => (
                     <li key={link.name}>
                       <Link 
@@ -111,19 +111,19 @@ const Footer = () => {
 
               {/* Column 4 - Social Links */}
               <div className="text-left">
-                <h4 className="text-lg font-semibold mb-6 text-gray-900">
+                <h4 className="text-base lg:text-lg font-semibold mb-4 lg:mb-6 text-gray-900">
                   Social with us
                 </h4>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3 lg:space-x-4">
                   {socialLinks.map((social) => (
                     <motion.a
                       key={social.label}
                       href={social.href}
-                      className="w-10 h-10 bg-primary-100 hover:bg-primary-200 rounded-full flex items-center justify-center text-primary-600 hover:text-primary-700 transition-all duration-200 transform hover:scale-110"
+                      className="w-9 h-9 lg:w-10 lg:h-10 bg-primary-100 hover:bg-primary-200 rounded-full flex items-center justify-center text-primary-600 hover:text-primary-700 transition-all duration-200 transform hover:scale-110"
                       whileHover={{ y: -2 }}
                       aria-label={social.label}
                     >
-                      <social.icon className="w-5 h-5" />
+                      <social.icon className="w-4 h-4 lg:w-5 lg:h-5" />
                     </motion.a>
                   ))}
                 </div>
@@ -134,9 +134,9 @@ const Footer = () => {
 
        {/* Copyright Section - Completely Separate */}
        <div className="bg-gray-100 border-t border-gray-200">
-         <div className="container-custom py-4">
+         <div className="container-custom py-3 lg:py-4">
            <div className="text-center">
-             <p className="text-gray-600 text-sm">
+             <p className="text-gray-600 text-xs lg:text-sm">
                © 2025 Royal Sunshine Holidays. All Rights Reserved
              </p>
            </div>
@@ -146,7 +146,7 @@ const Footer = () => {
               {/* Scroll to Top Button */}
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 z-50 cursor-pointer"
+          className="fixed bottom-4 right-4 lg:bottom-6 lg:right-6 w-10 h-10 lg:w-12 lg:h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 z-50 cursor-pointer"
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.9 }}
           initial={{ opacity: 0, y: 20 }}
@@ -154,7 +154,7 @@ const Footer = () => {
           transition={{ delay: 1 }}
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-5 h-5 lg:w-6 lg:h-6" />
         </motion.button>
      </footer>
   );

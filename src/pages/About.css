@@ -177,12 +177,77 @@
   margin-bottom: 15px;
 }
 
+@media (max-width: 1024px) {
+  .about-hero {
+    height: 350px;
+  }
+  
+  .about-hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .about-hero {
+    height: 300px;
+  }
+  
   .about-hero-content h1 {
     font-size: 2.5rem;
   }
   
   .about-container {
     padding: 0 15px;
+  }
+  
+  .about-content {
+    padding: 0 10px;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    height: 250px;
+  }
+  
+  .about-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .about-hero-content p {
+    font-size: 1rem;
+  }
+  
+  .about-container {
+    padding: 0 10px;
+  }
+  
+  .about-content {
+    padding: 0 5px;
+  }
+  
+  .about-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .mission-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .team-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .values-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }

@@ -3,6 +3,68 @@
   overflow-x: hidden;
 }
 
+/* Ensure navbar stays visible on home page - override any animations */
+/* Target navbar globally when home page is present */
+body:has(.home-page) nav,
+.home-page ~ nav,
+.home-page + nav,
+nav {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 9999 !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+body:has(.home-page) nav *,
+.home-page ~ nav *,
+.home-page + nav *,
+nav * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Specifically target navbar logo and text */
+body:has(.home-page) nav img,
+.home-page ~ nav img,
+.home-page + nav img,
+nav img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+body:has(.home-page) nav h1,
+body:has(.home-page) nav p,
+.home-page ~ nav h1,
+.home-page + nav h1,
+.home-page ~ nav p,
+.home-page + nav p,
+nav h1,
+nav p {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Override any GSAP animations on navbar elements */
+body:has(.home-page) nav,
+body:has(.home-page) nav * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
 /* Hero text centering and visibility */
 .hero-title {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -19,7 +81,7 @@
 
 /* Animate on scroll */
 .animate-on-scroll {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -118,6 +180,15 @@
   background-color: #f5f5f5;
 }
 
+/* Parent containers must allow 3D transforms */
+section:has(.destination-card),
+.container-custom:has(.destination-card),
+.grid:has(.destination-card) {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: visible;
+}
+
 /* Enhanced 3D Card Effects for Destination Cards */
 .destination-card {
   perspective: 1000px;
@@ -125,6 +196,9 @@
   cursor: pointer;
   margin: 30px 20px;
   padding: 10px;
+  isolation: isolate;
+  position: relative;
+  overflow: visible;
 }
 
 /* Target the 3D card components */
@@ -133,6 +207,9 @@
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  transform: translateZ(0);
 }
 
 /* Inter font for 3D cards */
@@ -146,27 +223,28 @@
 }
 
 /* Enhanced hover effects for 3D cards */
-.destination-card .group\/card:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-/* Ensure proper stacking context */
-.destination-card {
-  isolation: isolate;
+.destination-card:hover .group\/card {
+  transform: translateY(-25px) rotateX(12deg) rotateY(12deg) translateZ(30px) scale(1.05);
+  box-shadow: 
+    0 35px 70px -12px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(59, 130, 246, 0.2),
+    0 0 40px rgba(59, 130, 246, 0.3),
+    0 0 80px rgba(59, 130, 246, 0.1);
 }
 
 /* Smooth card interactions */
 .destination-card .group\/card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Card content styling */
 .destination-card .group\/card img {
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+  border-radius: 12px;
 }
 
-.destination-card .group\/card:hover img {
-  transform: scale(1.02);
+.destination-card:hover .group\/card img {
+  transform: scale(1.05) translateZ(20px);
 }
 
 /* Button hover effects */
@@ -175,11 +253,12 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  transform: translateZ(10px);
 }
 
 .destination-card .group\/card button:hover,
 .destination-card .group\/card a:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(15px);
 }
 
 /* Button shine effect */
@@ -193,11 +272,132 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
+  z-index: 1;
 }
 
 .destination-card .group\/card button:hover::before,
 .destination-card .group\/card a:hover::before {
   left: 100%;
+}
+
+/* Enhanced 3D depth for card elements */
+.destination-card .group\/card h3,
+.destination-card .group\/card p {
+  transform: translateZ(5px);
+  transition: all 0.3s ease;
+}
+
+.destination-card:hover .group\/card h3 {
+  transform: translateZ(15px) scale(1.02);
+  color: #3b82f6;
+}
+
+.destination-card:hover .group\/card p {
+  transform: translateZ(10px);
+}
+
+/* Add subtle 3D rotation on mouse move */
+.destination-card:hover {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced 3D card container effects */
+.destination-card .group\/card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.destination-card:hover .group\/card::before {
+  opacity: 1;
+}
+
+/* Enhanced card border and glow effect */
+.destination-card .group\/card {
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.destination-card:hover .group\/card {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(59, 130, 246, 0.1),
+    0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+/* Add floating animation for enhanced 3D effect */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(-25px) rotateX(12deg) rotateY(12deg) translateZ(30px) scale(1.05);
+  }
+  50% {
+    transform: translateY(-30px) rotateX(15deg) rotateY(15deg) translateZ(35px) scale(1.08);
+  }
+}
+
+.destination-card:hover .group\/card {
+  animation: float3D 3s ease-in-out infinite;
+}
+
+/* Ensure the card container doesn't interfere with 3D transforms */
+.destination-card .group\/card {
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+/* Add more pronounced 3D effect on hover */
+.destination-card:hover {
+  z-index: 50;
+  position: relative;
+}
+
+/* Ensure the card container has proper stacking context */
+.destination-card {
+  z-index: 1;
+  position: relative;
+}
+
+/* Make sure the 3D transforms are visible */
+.destination-card .group\/card {
+  z-index: 2;
+  position: relative;
+}
+
+/* Ensure proper 3D stacking */
+.destination-card .group\/card * {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced text 3D effects */
+.destination-card .group\/card h3 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.destination-card:hover .group\/card h3 {
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Enhanced image 3D effects */
+.destination-card .group\/card img {
+  filter: brightness(1) contrast(1);
+  transition: all 0.4s ease;
+}
+
+.destination-card:hover .group\/card img {
+  filter: brightness(1.05) contrast(1.1) saturate(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .destination-grid {
@@ -207,6 +407,25 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+/* Ensure grid containers allow 3D transforms */
+.grid {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+/* Ensure all parent containers allow 3D transforms */
+.py-20 {
+  overflow: visible;
+}
+
+.bg-white {
+  overflow: visible;
 }
 
 /* Removed conflicting destination-card styles */
@@ -487,15 +706,39 @@
 }
 
 /* Responsive styles */
+@media (max-width: 1024px) {
+  .destination-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .cta-content h2 {
     font-size: 2.5rem;
+  }
+  
+  .destination-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 15px;
+  }
+  
+  .features-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .feature-card {
+    padding: 25px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .feature-card {
-    padding: 30px 20px;
+    padding: 20px 15px;
   }
   
   .cta-content h2 {
@@ -503,12 +746,22 @@
   }
   
   .testimonial-card {
-    padding: 30px 20px;
+    padding: 25px 15px;
   }
   
   .testimonial-avatar {
     width: 60px;
     height: 60px;
+  }
+  
+  .destination-grid {
+    gap: 30px;
+    padding: 0 10px;
+  }
+  
+  .features-container {
+    gap: 15px;
+    padding: 0 10px;
   }
 }
 
@@ -845,6 +1098,27 @@
   .reviews-section figure {
     width: 280px !important;
     margin: 0 0.5rem;
+  }
+}
+
+/* Mobile responsive adjustments for affiliated hotels */
+@media (max-width: 768px) {
+  .affiliated-hotels-section .marquee-container {
+    min-height: 100px;
+  }
+  
+  .affiliated-hotels-section .hotel-card {
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .affiliated-hotels-section .marquee-container {
+    min-height: 80px;
+  }
+  
+  .affiliated-hotels-section .hotel-card {
+    margin: 0 0.25rem;
   }
 }
 

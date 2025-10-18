@@ -31,22 +31,22 @@ function DMC() {
               containerClassName="w-full h-full bg-white border border-gray-200 shadow-lg min-h-[400px]"
               className=""
             >
-              <div className="flex items-center gap-8 w-full h-full">
-                <div className="flex-shrink-0">
+              <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 w-full h-full p-6 lg:p-8">
+                <div className="flex-shrink-0 w-full lg:w-auto">
                   <img
                     src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Himachal Pradesh"
-                    className="w-80 h-80 object-cover rounded-2xl shadow-lg"
+                    className="w-full sm:w-80 h-64 sm:h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-left text-balance text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.015em] text-gray-800 mb-4">
+                <div className="flex-1 w-full">
+                  <h2 className="text-left text-balance text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.015em] text-gray-800 mb-4">
                     Himachal Pradesh
                   </h2>
-                  <p className="text-left text-base/6 text-gray-600 mb-6 max-w-2xl">
+                  <p className="text-left text-sm sm:text-base/6 text-gray-600 mb-6 max-w-2xl">
                     {expandedHimachal ? himachalText : truncatedHimachal}
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <button 
                       className="read-more-btn"
                       onClick={() => setExpandedHimachal(!expandedHimachal)}
@@ -65,22 +65,22 @@ function DMC() {
             <WobbleCard 
               containerClassName="w-full h-full bg-white border border-gray-200 shadow-lg min-h-[400px]"
             >
-              <div className="flex items-center gap-8 w-full h-full">
-                <div className="flex-shrink-0">
+              <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 w-full h-full p-6 lg:p-8">
+                <div className="flex-shrink-0 w-full lg:w-auto">
                   <img
                     src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Uttarakhand"
-                    className="w-80 h-80 object-cover rounded-2xl shadow-lg"
+                    className="w-full sm:w-80 h-64 sm:h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-left text-balance text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.015em] text-gray-800 mb-4">
+                <div className="flex-1 w-full">
+                  <h2 className="text-left text-balance text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[-0.015em] text-gray-800 mb-4">
                     Uttarakhand
                   </h2>
-                  <p className="text-left text-base/6 text-gray-600 mb-6 max-w-2xl">
+                  <p className="text-left text-sm sm:text-base/6 text-gray-600 mb-6 max-w-2xl">
                     {expandedUttarakhand ? uttarakhandText : truncatedUttarakhand}
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <button 
                       className="read-more-btn"
                       onClick={() => setExpandedUttarakhand(!expandedUttarakhand)}

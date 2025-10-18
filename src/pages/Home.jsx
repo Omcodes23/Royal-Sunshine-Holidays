@@ -344,8 +344,8 @@ function Home() {
 
   const HotelCard = ({ logo, name, description }) => {
     return (
-      <div className="mx-8">
-        <div className="relative w-56 h-36 cursor-pointer overflow-visible rounded-2xl transition-all duration-300 hover:scale-105">
+      <div className="mx-4 sm:mx-6 lg:mx-8">
+        <div className="relative w-40 h-24 sm:w-48 sm:h-32 lg:w-56 lg:h-36 cursor-pointer overflow-visible rounded-2xl transition-all duration-300 hover:scale-105">
           <img 
             className="w-full h-full object-contain rounded-2xl" 
             alt={name} 
@@ -385,7 +385,7 @@ function Home() {
           {/* Content overlay - Highest z-index */}
           <div className="text-center text-white px-4 max-w-4xl mx-auto relative z-[100] flex flex-col justify-center items-center h-full">
             <motion.h1 
-              className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-2xl"
+              className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -397,7 +397,7 @@ function Home() {
             </motion.h1>
             
             <motion.p 
-              className="hero-subtitle text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-lg"
+              className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-lg px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -407,29 +407,26 @@ function Home() {
             </motion.p>
             
             <motion.div 
-              className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Link to="/packages" className="btn bg-primary-500 hover:bg-primary-600 text-lg px-8 py-4 shadow-lg">
+              <Link to="/packages" className="btn bg-primary-500 hover:bg-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg">
                 Explore Packages
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-              <a href="tel:+919876543210" className="btn-outline border-white text-white hover:bg-white hover:text-primary-500 text-lg px-8 py-4">
-                <Phone className="mr-2 w-5 h-5" />
-                Call Now
-              </a>
+              
             </motion.div>
           </div>
         </ImageCursorTrail>
       </section>
 
       {/* Features Section */}
-      <section ref={featuresRef} className="py-20 bg-gray-50">
+      <section ref={featuresRef} className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container-custom">
           <motion.h2 
-            className="section-title text-center mb-20"
+            className="section-title text-center mb-12 sm:mb-16 lg:mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -438,7 +435,7 @@ function Home() {
             Why Choose <span className="text-primary-500">Royal Sunshine</span>?
           </motion.h2>
           
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -450,10 +447,10 @@ function Home() {
                 whileHover={{ y: -15, scale: 1.02 }}
               >
                 <CardContainer className="inter-var">
-                  <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-primary-500/[0.1] border-black/[0.1] w-auto h-auto rounded-2xl p-8 border transition-all duration-500 hover:border-primary-500/20">
+                  <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-primary-500/[0.1] border-black/[0.1] w-auto h-auto rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:border-primary-500/20">
                     <CardItem
                       translateZ="50"
-                      className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300"
+                      className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-primary-600 transition-colors duration-300"
                     >
                       {feature.title}
                     </CardItem>
@@ -461,17 +458,17 @@ function Home() {
                     <CardItem
                       as="p"
                       translateZ="60"
-                      className="text-gray-600 text-base leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300"
+                      className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 group-hover:text-gray-700 transition-colors duration-300"
                     >
                       {feature.description}
                     </CardItem>
                     
                     <CardItem 
                       translateZ="100" 
-                      className="w-full mb-6"
+                      className="w-full mb-4 sm:mb-6"
                     >
-                      <div className="w-24 h-24 mx-auto bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-primary-500/25">
-                        <feature.icon className="w-12 h-12 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-primary-500/25">
+                        <feature.icon className="w-10 h-10 sm:w-12 sm:h-12 text-white group-hover:scale-110 transition-transform duration-300" />
                       </div>
                     </CardItem>
                     
@@ -487,10 +484,10 @@ function Home() {
       </section>
 
       {/* Explore Our Destinations Section */}
-      <section ref={destinationsRef} className="py-20 bg-white">
+      <section ref={destinationsRef} className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container-custom">
           <motion.h2 
-            className="section-title text-center mb-16"
+            className="section-title text-center mb-12 sm:mb-16 lg:mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -499,27 +496,30 @@ function Home() {
             Explore Our <span className="text-primary-500">Destinations</span>
           </motion.h2>
           
-          <div className="grid md:grid-cols-2 gap-20 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 max-w-5xl mx-auto">
             {destinations.map((destination, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="destination-card group cursor-pointer mx-4"
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -15, scale: 1.02 }}
+                onClick={() => window.location.href = '/packages'}
               >
                 <CardContainer className="inter-var">
-                  <CardBody
-                    className="bg-gray-50 relative group/card border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-8 border"
-                    onClick={() => window.location.href = destination.link}
-                  >
+                  <CardBody className="bg-gray-50 relative group/card hover:shadow-2xl hover:shadow-primary-500/[0.1] border-black/[0.1] w-auto h-auto rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:border-primary-500/20">
                     <CardItem
                       translateZ="50"
-                      className="text-xl font-bold text-neutral-600 text-center"
+                      className="text-lg sm:text-xl font-bold text-neutral-600 text-center group-hover:text-primary-600 transition-colors duration-300"
                     >
                       {destination.name}
                     </CardItem>
                     <CardItem
                       as="p"
                       translateZ="60"
-                      className="text-neutral-500 text-sm max-w-sm mt-2 text-center"
+                      className="text-neutral-500 text-sm max-w-sm mt-2 text-center group-hover:text-gray-700 transition-colors duration-300"
                     >
                       {destination.description}
                     </CardItem>
@@ -528,22 +528,24 @@ function Home() {
                         src={destination.image}
                         height="1000"
                         width="1000"
-                        className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                        className="h-48 sm:h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl transition-transform duration-300 group-hover:scale-105"
                         alt={destination.name} />
                     </CardItem>
                     
-                    <div className="flex justify-center items-center mt-20">
+                    <div className="flex justify-center items-center mt-12 sm:mt-16 lg:mt-20">
                       <CardItem
                         translateZ={20}
-                        as="a"
-                        href={destination.link}
-                        className="px-6 py-3 rounded-xl text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-300">
+                        className="px-4 sm:px-6 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-300 cursor-pointer group-hover:scale-105">
                         Explore Now →
                       </CardItem>
                     </div>
+                    
+                    {/* Floating elements for extra interactivity */}
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:animate-pulse"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-primary-300 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 group-hover:animate-bounce"></div>
                   </CardBody>
                 </CardContainer>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -552,10 +554,10 @@ function Home() {
       
 
       {/* Affiliated Hotels Section */}
-      <section ref={hotelsRef} className="py-20 bg-gray-50 relative overflow-hidden affiliated-hotels-section">
+      <section ref={hotelsRef} className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden affiliated-hotels-section">
         <div className="container-custom relative z-10">
           <motion.h2 
-            className="section-title text-gray-900 text-center mb-16"
+            className="section-title text-gray-900 text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -565,7 +567,7 @@ function Home() {
           </motion.h2>
           
           <div className="relative flex w-full flex-col items-center justify-center">
-            <div className="w-full mb-16 overflow-hidden marquee-container marquee-row">
+            <div className="w-full mb-12 sm:mb-16 overflow-hidden marquee-container marquee-row">
               <Marquee key="first-marquee" pauseOnHover speed={25}>
                 {firstRow.map((hotel, index) => (
                   <HotelCard key={`first-${index}`} {...hotel} />
@@ -595,7 +597,7 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container-custom text-center">
           <motion.div
             className="max-w-3xl mx-auto"
@@ -604,21 +606,18 @@ function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Ready to Start Your <span className="text-primary-500">Adventure</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               Contact us today to plan your dream vacation. Our travel experts are here to help you create unforgettable memories.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact" className="btn bg-primary-500 hover:bg-primary-600 text-lg px-8 py-4 shadow-lg">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+              <Link to="/contact" className="btn bg-primary-500 hover:bg-primary-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg">
                 Get in Touch
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-              <a href="tel:+919876543210" className="btn-outline text-lg px-8 py-4">
-                <Phone className="mr-2 w-5 h-5" />
-                Call Now
-              </a>
+              
             </div>
           </motion.div>
         </div>

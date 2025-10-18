@@ -92,7 +92,21 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .dmc-hero {
+    height: 350px;
+  }
+  
+  .dmc-hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .dmc-hero {
+    height: 300px;
+  }
+  
   .dmc-hero-content h1 {
     font-size: 2.5rem;
   }
@@ -105,5 +119,29 @@
   .explore-more-btn {
     padding: 8px 16px;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dmc-hero {
+    height: 250px;
+  }
+  
+  .dmc-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .dmc-hero-content p {
+    font-size: 1rem;
+  }
+  
+  .dmc-container {
+    padding: 10px;
+  }
+  
+  .read-more-btn,
+  .explore-more-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
   }
 }

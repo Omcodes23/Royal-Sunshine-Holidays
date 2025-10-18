@@ -49,9 +49,7 @@ const Footer = () => {
 
 Beside Gangotri exotica Laxmipura Char Rasta
 
-Nayaran Garden, 30, Mtr Road
-
-Gotri, Vadodara, Gujarat 390023
+Nayaran Gardens
                               </span>
                             </div>
                             <iframe 

@@ -9,12 +9,14 @@ import Contact from './pages/Contact'
 import DomesticPackages from './pages/DomesticPackages'
 import InteractiveMap from './pages/InteractiveMap'
 import ShineLoader from './components/ShineLoader'
+import ScrollToTop from './components/ScrollToTop'
 import './App.css'
 
 function App() {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToTop />
         <div className="app-container min-h-screen bg-white transition-colors duration-300">
           <ShineLoader />
           <Navbar />

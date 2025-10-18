@@ -53,7 +53,7 @@ function DMC() {
                     >
                       {expandedHimachal ? 'Read Less' : 'Read More'}
                     </button>
-                    <Link to="/domestic-packages" className="explore-more-btn">
+                    <Link to="/packages" className="explore-more-btn">
                       Explore More
                     </Link>
                   </div>
@@ -68,7 +68,7 @@ function DMC() {
               <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 w-full h-full p-6 lg:p-8">
                 <div className="flex-shrink-0 w-full lg:w-auto">
                   <img
-                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://images.unsplash.com/photo-1709623868300-e3b78cad10e1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=435"
                     alt="Uttarakhand"
                     className="w-full sm:w-80 h-64 sm:h-80 object-cover rounded-2xl shadow-lg"
                   />
@@ -87,7 +87,7 @@ function DMC() {
                     >
                       {expandedUttarakhand ? 'Read Less' : 'Read More'}
                     </button>
-                    <Link to="/domestic-packages" className="explore-more-btn">
+                    <Link to="/packages" className="explore-more-btn">
                       Explore More
                     </Link>
                   </div>

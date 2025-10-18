@@ -22,7 +22,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Manali',
-      image: 'https://images.unsplash.com/photo-1607923432780-7a9c30adcb83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/manali.png',
       hotels: [
         { name: 'Hotel Fyra', rating: 3 },
         { name: 'Rio Sol Resort', rating: 3 },
@@ -40,7 +40,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Kasol',
-      image: 'https://images.unsplash.com/photo-1580253466313-6c8a875bd90f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/kasol.png',
       hotels: [
         { name: 'Hotel Hukam\'s Holiday Home', rating: 3 },
         { name: 'Hotel Royal Palace', rating: 4 },
@@ -49,7 +49,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Dharamshala',
-      image: 'https://images.unsplash.com/photo-1626621331169-5f11fbd7d49a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/dharamshala.png',
       hotels: [
         { name: 'Aliza Inn and Suites', rating: 3 },
         { name: 'Hotel AK Continental', rating: 3 },
@@ -61,7 +61,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Dalhousie',
-      image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/dalhousie.png',
       hotels: [
         { name: 'Hotel Bias Pushap', rating: 3 },
         { name: 'Hotel Dalhousie Delight', rating: 3 },
@@ -73,7 +73,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Amritsar',
-      image: 'https://images.unsplash.com/photo-1580253466313-6c8a875bd90f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/amritsar.png',
       hotels: [
         { name: 'The Posh', rating: 3 },
         { name: 'Regalia Grand', rating: 3 },
@@ -82,14 +82,14 @@ function DomesticPackages() {
     },
     {
       destination: 'Chandigarh/Zirakpur',
-      image: 'https://images.unsplash.com/photo-1602216056096-3b40fd0d9fbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/chandigarh.png',
       hotels: [
         { name: 'AK Continental', rating: 3 }
       ]
     },
     {
       destination: 'Nainital/Bhimtal',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/nainital.png',
       hotels: [
         { name: 'Hotel Himalayan Monk', rating: 3 },
         { name: 'Vaapi Comfort Inn - Naukuchiatal', rating: 3 },
@@ -100,7 +100,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Corbett',
-      image: 'https://images.unsplash.com/photo-1602216056096-3b40fd0d9fbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/corbett.png',
       hotels: [
         { name: 'Le Reserve Corbett', rating: 3 },
         { name: 'Vedikant Resorts The Mallard Corbett', rating: 3 },
@@ -113,7 +113,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Rishikesh',
-      image: 'https://images.unsplash.com/photo-1602216056096-3b40fd0d9fbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/rishikesh.png',
       hotels: [
         { name: 'Indira Nikunj Rubystone Exotic', rating: 3 },
         { name: 'Tiaraa Lite - A Ganges Retreat', rating: 4 },
@@ -122,7 +122,7 @@ function DomesticPackages() {
     },
     {
       destination: 'Mussoorie',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      image: '/assets/hotelist/mussoorie.png ',
       hotels: [
         { name: 'Rubystone Mussoorie', rating: 3 },
         { name: 'The Nathuli Manor', rating: 3 },

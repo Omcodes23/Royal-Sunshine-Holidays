@@ -25,14 +25,14 @@ function About() {
                 Himachal Pradesh
               </LinkPreview>{" "}
               DMC and aiming to expand its operations to other states such as{" "}
-              <LinkPreview 
+              {/* <LinkPreview 
                 url="https://tourism.rajasthan.gov.in" 
                 className="font-bold"
                 isStatic={true}
                 imageSrc="/assets/maps/rajasthan.png"
               >
                 Rajasthan
-              </LinkPreview>,{" "}
+              </LinkPreview>,{" "} */}
               <LinkPreview 
                 url="https://uttarakhandtourism.gov.in" 
                 className="font-bold"
@@ -40,8 +40,8 @@ function About() {
                 imageSrc="/assets/maps/uttrakhand.png"
               >
                 Uttarakhand
-              </LinkPreview>,{" "}
-              <LinkPreview 
+              </LinkPreview>{" "}
+              {/* <LinkPreview 
                 url="https://gujarattourism.com" 
                 className="font-bold"
                 isStatic={true}
@@ -56,7 +56,7 @@ function About() {
                 imageSrc="/assets/maps/goa.png"
               >
                 Goa
-              </LinkPreview>.
+              </LinkPreview>. */}
             </p>
             <p className="mb-6 text-lg leading-relaxed">
               At Royal Sunshine, each traveler is provided with an unforgettable experience, no matter the occasion. Be it for a leisure trip, corporate tour, or destination wedding, a team of professional's works to ensure that the customer's needs are catered to. From transportation and accommodation to sightseeing and adventure activities, Royal Sunshine offers a comprehensive range of services that are tailored to each customer.

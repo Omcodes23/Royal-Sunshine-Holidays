@@ -47,6 +47,7 @@ const Navbar = () => {
     { path: '/', label: 'Home' },
     { path: '/dmc', label: 'DMC' },
     { path: '/about', label: 'About' },
+    { path: '/achievements', label: 'Achievements' },
     { path: '/contact', label: 'Contact us' },
     { path: '/packages', label: 'Our Offerings' }
   ];

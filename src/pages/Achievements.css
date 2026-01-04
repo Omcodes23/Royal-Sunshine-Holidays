@@ -1,0 +1,32 @@
+.achievements-page {
+  min-height: 100vh;
+}
+
+.award-card {
+  transition: all 0.3s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .achievements-hero-title {
+    font-size: 2rem;
+  }
+  
+  .achievements-hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .achievements-hero-subtitle {
+    font-size: 0.9rem;
+  }
+}

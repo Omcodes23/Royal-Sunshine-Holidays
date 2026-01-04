@@ -7,7 +7,8 @@ import {
   Instagram, 
   Linkedin,
   Heart,
-  ArrowUp
+  ArrowUp,
+  Youtube
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PinContainer } from './ui/3d-pin';
@@ -22,7 +23,8 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/royalsunshinegroupofhotels/', label: 'Facebook' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/royalsunshineholidays/', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://www.instagram.com/royalsunshine19/', label: 'Instagram' }
+    { icon: Instagram, href: 'https://www.instagram.com/royal_sunshine_hospitality/', label: 'Instagram' },
+    { icon: Youtube, href: 'https://www.youtube.com/@royalsunshinehospitality', label: 'YouTube' }
   ];
 
   return (

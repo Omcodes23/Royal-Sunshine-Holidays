@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import DomesticPackages from './pages/DomesticPackages'
 import InteractiveMap from './pages/InteractiveMap'
+import Achievements from './pages/Achievements'
 import ShineLoader from './components/ShineLoader'
 import ScrollToTop from './components/ScrollToTop'
 import './App.css'
@@ -28,6 +29,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/packages" element={<DomesticPackages />} />
               <Route path="/interactive-map" element={<InteractiveMap />} />
+              <Route path="/achievements" element={<Achievements />} />
             </Routes>
           </main>
           <Footer />

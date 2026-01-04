@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
@@ -10,7 +10,16 @@ import {
   Calendar,
   ArrowRight,
   Shield,
-  Heart
+  Heart,
+  Instagram,
+  Play,
+  Pause,
+  Mountain,
+  Palmtree,
+  Camera,
+  Compass,
+  Plane,
+  Luggage
 } from 'lucide-react';
 
 import { CardBody, CardContainer, CardItem } from '../components/ui/3d-card';
@@ -36,6 +45,72 @@ const travelImages = [
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
+
+// VideoPlayer Component - iPhone-style frame with first-second thumbnail
+const VideoPlayer = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
+  };
+
+  return (
+    <div className="relative mx-auto" style={{ maxWidth: '360px' }}>
+      <div className="relative bg-gradient-to-b from-gray-900 to-black rounded-[2.8rem] p-3 shadow-2xl ring-1 ring-gray-800/60">
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20 shadow-[0_8px_18px_-10px_rgba(0,0,0,0.6)]"></div>
+
+        {/* Screen */}
+        <div className="relative bg-black rounded-[2.2rem] overflow-hidden border border-gray-800" style={{ aspectRatio: '9/19.5' }}>
+          <video 
+            ref={videoRef}
+            className="w-full h-full object-cover cursor-pointer"
+            onClick={handlePlayPause}
+            onEnded={handleVideoEnd}
+            preload="auto"
+            poster="/assets/viedos/insta-reeel1.mp4#t=0.1"
+            playsInline
+          >
+            <source src="/assets/viedos/insta-reeel1.mp4#t=0.1" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {!isPlaying && (
+            <div 
+              className="absolute inset-0 flex items-center justify-center bg-black/35 cursor-pointer transition-all duration-300"
+              onClick={handlePlayPause}
+            >
+              <motion.div
+                className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl"
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.15 }}
+              >
+                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-primary-600 ml-1" fill="currentColor" />
+              </motion.div>
+            </div>
+          )}
+        </div>
+
+        {/* Home indicator */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1.5 bg-gray-500 rounded-full opacity-80"></div>
+      </div>
+    </div>
+  );
+};
 
 function Home() {
   const heroRef = useRef(null);
@@ -548,6 +623,142 @@ function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Instagram Reels Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
+        {/* Ambient gradient glows */}
+        <div className="absolute -left-10 top-10 w-40 h-40 bg-primary-500/15 blur-3xl rounded-full"></div>
+        <div className="absolute -right-16 bottom-10 w-48 h-48 bg-pink-500/15 blur-3xl rounded-full"></div>
+
+        {/* Full-area floating travel icons */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block" aria-hidden>
+          {["18%","50%","82%"].map((left, idx) => (
+            <motion.div
+              key={`row-top-${idx}`}
+              className="absolute"
+              style={{ top: `${8 + idx * 10}%`, left }}
+              animate={{ y: [0, -10, 0], rotate: [0, 8, 0] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.35 }}
+            >
+              <Mountain className="w-8 h-8 text-primary-600 opacity-25" />
+            </motion.div>
+          ))}
+
+          {/* Additional soft sparkles (20 items) */}
+          {Array.from({ length: 20 }).map((_, idx) => {
+            const top = 5 + (idx * 4) % 90;
+            const left = 5 + (idx * 7) % 90;
+            const delay = 0.1 * idx;
+            return (
+              <motion.div
+                key={`sparkle-${idx}`}
+                className="absolute"
+                style={{ top: `${top}%`, left: `${left}%` }}
+                animate={{
+                  y: [0, -6, 0],
+                  opacity: [0.12, 0.28, 0.12],
+                  scale: [0.9, 1.1, 0.9]
+                }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay }}
+              >
+                <div className="w-3 h-3 rounded-full bg-primary-400/30 blur-sm"></div>
+              </motion.div>
+            );
+          })}
+          {["20%","55%","88%"].map((left, idx) => (
+            <motion.div
+              key={`row-mid-${idx}`}
+              className="absolute"
+              style={{ top: `${35 + idx * 8}%`, left }}
+              animate={{ y: [0, 9, 0], rotate: [0, -8, 0] }}
+              transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 + idx * 0.3 }}
+            >
+              <Plane className="w-7 h-7 text-blue-500 opacity-25" />
+            </motion.div>
+          ))}
+          {["24%","60%","92%"].map((left, idx) => (
+            <motion.div
+              key={`row-low-${idx}`}
+              className="absolute"
+              style={{ top: `${62 + idx * 7}%`, left }}
+              animate={{ y: [0, -9, 0], rotate: [0, 5, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.7 + idx * 0.25 }}
+            >
+              <Palmtree className="w-7 h-7 text-green-600 opacity-25" />
+            </motion.div>
+          ))}
+          {["26%","64%","90%"].map((left, idx) => (
+            <motion.div
+              key={`row-accent-${idx}`}
+              className="absolute"
+              style={{ top: `${20 + idx * 12}%`, left }}
+              animate={{ y: [0, 8, 0], rotate: [0, -5, 0], x: [0, 3, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.4 + idx * 0.2 }}
+            >
+              <Camera className="w-6 h-6 text-pink-500 opacity-25" />
+            </motion.div>
+          ))}
+          {["18%","50%","84%"].map((left, idx) => (
+            <motion.div
+              key={`row-pin-${idx}`}
+              className="absolute"
+              style={{ top: `${50 + idx * 9}%`, left }}
+              animate={{ y: [0, -7, 0], rotate: [0, 4, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 + idx * 0.2 }}
+            >
+              <MapPin className="w-6 h-6 text-orange-500 opacity-25" />
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="container-custom relative z-10">
+          <motion.h2 
+            className="section-title text-center mb-12 sm:mb-16 lg:mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Follow Our <span className="text-primary-500">Journey</span>
+          </motion.h2>
+          
+          <motion.div 
+            className="max-w-md sm:max-w-lg mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <VideoPlayer />
+            <motion.p 
+              className="text-center mt-6 sm:mt-8 text-base sm:text-lg text-gray-600"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              Check out our latest adventures on Instagram! Follow us for more amazing travel content.
+            </motion.p>
+            <motion.div 
+              className="flex justify-center mt-4 sm:mt-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <a 
+                href="https://www.instagram.com/royal_sunshine_hospitality/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                <Instagram className="w-5 h-5" />
+                <span className="font-semibold">Follow us on Instagram</span>
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

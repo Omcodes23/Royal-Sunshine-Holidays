@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Award, 
-  Phone, 
+import {
+  MapPin,
+  Award,
+  Phone,
   Calendar,
   ArrowRight,
   Shield,
@@ -47,7 +47,7 @@ const travelImages = [
 gsap.registerPlugin(ScrollTrigger);
 
 // VideoPlayer Component - iPhone-style frame with first-second thumbnail
-const VideoPlayer = () => {
+const VideoPlayer = ({ onPlayStateChange }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
@@ -56,6 +56,7 @@ const VideoPlayer = () => {
       try {
         videoRef.current.currentTime = 0.4;
         videoRef.current.pause();
+        onPlayStateChange?.(false);
       } catch (e) {
         // no-op if seeking fails
       }
@@ -67,15 +68,18 @@ const VideoPlayer = () => {
       if (isPlaying) {
         videoRef.current.pause();
         setIsPlaying(false);
+        onPlayStateChange?.(false);
       } else {
         videoRef.current.play();
         setIsPlaying(true);
+        onPlayStateChange?.(true);
       }
     }
   };
 
   const handleVideoEnd = () => {
     setIsPlaying(false);
+    onPlayStateChange?.(false);
   };
 
   return (
@@ -128,6 +132,7 @@ function Home() {
   const featuresRef = useRef(null);
   const destinationsRef = useRef(null);
   const hotelsRef = useRef(null);
+  const [isReelPlaying, setIsReelPlaying] = useState(false);
 
   useEffect(() => {
     // Hero animation
@@ -452,7 +457,7 @@ function Home() {
         <div className="absolute inset-0 z-0">
           <Particles
             className="particles-canvas"
-            quantity={300}
+            quantity={120}
             ease={60}
             staticity={80}
             color="#0066cc"
@@ -470,17 +475,21 @@ function Home() {
         >
           {/* Content overlay - Highest z-index */}
           <div className="text-center text-white px-4 max-w-4xl mx-auto relative z-[100] flex flex-col justify-center items-center h-full">
-            <motion.h1 
-              className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+            <motion.div 
+              className="max-w-md sm:max-w-lg mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              Discover India with{' '}
-              <span className="text-primary-400">
-                Royal Sunshine
-              </span>
-            </motion.h1>
+              <motion.h1
+                className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight drop-shadow-xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Discover India with <span className="text-primary-300">Royal Sunshine</span>
+              </motion.h1>
             
             <motion.p 
               className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-lg px-2"
@@ -503,6 +512,7 @@ function Home() {
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
               
+            </motion.div>
             </motion.div>
           </div>
         </ImageCursorTrail>
@@ -644,6 +654,7 @@ function Home() {
         <div className="absolute -right-16 bottom-10 w-48 h-48 bg-pink-500/15 blur-3xl rounded-full"></div>
 
         {/* Full-area floating travel icons */}
+        {!isReelPlaying && (
         <div className="absolute inset-0 pointer-events-none hidden md:block" aria-hidden>
           {["18%","50%","82%"].map((left, idx) => (
             <motion.div
@@ -723,6 +734,7 @@ function Home() {
             </motion.div>
           ))}
         </div>
+        )}
 
         <div className="container-custom relative z-10">
           <motion.h2 
@@ -742,7 +754,7 @@ function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <VideoPlayer />
+            <VideoPlayer onPlayStateChange={setIsReelPlaying} />
             <motion.p 
               className="text-center mt-6 sm:mt-8 text-base sm:text-lg text-gray-600"
               initial={{ opacity: 0 }}

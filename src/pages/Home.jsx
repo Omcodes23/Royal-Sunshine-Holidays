@@ -51,6 +51,17 @@ const VideoPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
+  const handleLoadedMeta = () => {
+    if (videoRef.current && !isPlaying) {
+      try {
+        videoRef.current.currentTime = 0.4;
+        videoRef.current.pause();
+      } catch (e) {
+        // no-op if seeking fails
+      }
+    }
+  };
+
   const handlePlayPause = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -81,7 +92,7 @@ const VideoPlayer = () => {
             onClick={handlePlayPause}
             onEnded={handleVideoEnd}
             preload="auto"
-            poster="/assets/viedos/insta-reeel1.mp4#t=0.1"
+            onLoadedMetadata={handleLoadedMeta}
             playsInline
           >
             <source src="/assets/viedos/insta-reeel1.mp4#t=0.1" type="video/mp4" />
